@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="破产姐妹"
+                android:id="@+id/textBrokenGirls"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="老爸老妈的浪漫史"
+                android:id="@+id/textHowIMetYourMother"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="生活大爆炸"
+                android:id="@+id/textBigBang"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="摩登家庭"
+                android:id="@+id/textModernFamily"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="老友记"
+                android:id="@+id/textFriends"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="权利的游戏"
+                android:id="@+id/textGameOfThrones"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondFirst"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="行尸走肉"
+                android:id="@+id/textWalkingDead"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

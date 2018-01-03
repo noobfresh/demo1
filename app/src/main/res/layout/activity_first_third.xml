@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="想"
+                android:id="@+id/textThink"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="知道"
+                android:id="@+id/textKnow"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="最热"
+                android:id="@+id/textHottest"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="最全"
+                android:id="@+id/textCompletion"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="的"
+                android:id="@+id/textDe"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="电影"
+                android:id="@+id/textMovie"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstThird"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="吗？"
+                android:id="@+id/textQuestionMark"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

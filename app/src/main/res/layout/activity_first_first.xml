@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="邮箱"
+                android:id="@+id/textMail"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="用户名"
+                android:id="@+id/textUsername"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="这是一根香蕉"
+                android:id="@+id/textBanana"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="登录密码"
+                android:id="@+id/textPassword"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="指纹密码"
+                android:id="@+id/textFingerprint"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="安全中心"
+                android:id="@+id/textSecurity"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearAccount"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="想不出来了"
+                android:id="@+id/textRunOut"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstSettingActivity"
+    android:orientation="vertical"
+    android:background="#fff">
+
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="接收新消息通知"
+                android:id="@+id/textNewMsgNotify"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="接收语音和视频聊天邀请通知"
+                android:id="@+id/textAccpetVoiceVideo"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="声音"
+                android:id="@+id/textVoice"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="振动"
+                android:id="@+id/textVibration"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="不接收新消息"
+                android:id="@+id/textNonAccpetMsg"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSetting6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="充值"
+                android:id="@+id/textPay"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

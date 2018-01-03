@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="KD"
+                android:id="@+id/textKD"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="威少"
+                android:id="@+id/textWestbrook"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="安东尼"
+                android:id="@+id/textAnthony"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="乔治"
+                android:id="@+id/textGeorge"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="字母哥"
+                android:id="@+id/textZimuge"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="卡哇伊"
+                android:id="@+id/textCute"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondThird"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="戈登"
+                android:id="@+id/textGordan"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

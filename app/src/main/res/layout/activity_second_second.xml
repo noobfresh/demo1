@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="神盾局特工"
+                android:id="@+id/textAgentsOfShield"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="查理的成长日记"
+                android:id="@+id/textCharlie"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="广告狂人"
+                android:id="@+id/textMadMen"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="纸牌屋"
+                android:id="@+id/textHouseOfCard"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="美国恐怖故事"
+                android:id="@+id/textAmericanHorrorStory"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="硅谷"
+                android:id="@+id/textSilconValley"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearSecondSecond"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="绝望主妇"
+                android:id="@+id/textDesperateHousewife"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.demo1.view.Activity.FirstFirstActivity">
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond5"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="邮箱"
+                android:id="@+id/textEmail"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond1"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="你好"
+                android:id="@+id/textHello"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond2"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="这是"
+                android:id="@+id/textThisIs"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond3"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="欢聚"
+                android:id="@+id/textHuanJu"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond4"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="时代"
+                android:id="@+id/textTimes"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond6"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="公司"
+                android:id="@+id/textCompany"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout">
+        <View style="@style/bg_line"/>
+        <LinearLayout style="@style/base_layout"
+            android:id="@+id/linearFirstSecond"
+            android:background="@drawable/setting_selector">
+            <TextView style="@style/usertext"
+                android:text="嘉年华"
+                android:id="@+id/textCarnival"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+    </LinearLayout>
+
+</LinearLayout>
