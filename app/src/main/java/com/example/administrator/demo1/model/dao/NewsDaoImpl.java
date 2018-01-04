@@ -13,7 +13,7 @@ import java.util.List;
 public class NewsDaoImpl implements INewsDao {
     @Override
     public List<News> query(String whereClause, String... args) {
-        List<News> newsList = new ArrayList<>();
+        List<News> newsList;
         newsList = DBUtil.queryT(News.class, whereClause, args);
         return newsList;
     }

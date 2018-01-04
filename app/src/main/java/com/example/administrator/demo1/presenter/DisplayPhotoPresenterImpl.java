@@ -12,22 +12,15 @@ import java.util.List;
  * Created by Administrator on 2017/12/22.
  */
 
-public class DisplayPhotoPresenterImpl implements IDisplayPhotoPresenter {
+public class DisplayPhotoPresenterImpl extends BasePresenterImpl<Photo> implements IDisplayPhotoPresenter {
 
     private IPhotoDao photoDao;
 
-    private MainActivity activity;
 
-    public DisplayPhotoPresenterImpl(MainActivity activity) {
-        //暂时null
-        this.activity = null;
+    public DisplayPhotoPresenterImpl() {
         photoDao = new PhotoDaoImpl();
     }
 
-    @Override
-    public void refresh() {
-
-    }
 
     @Override
     public List<Photo> display() {

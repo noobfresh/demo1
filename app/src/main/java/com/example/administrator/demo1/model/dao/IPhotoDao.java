@@ -10,5 +10,5 @@ import java.util.List;
  */
 
 public interface IPhotoDao extends IBaseDao<Photo>{
-    public void fasten(PhotoFragment fragment, List<Photo> photoList);
+    void fasten(PhotoFragment fragment, List<Photo> photoList);
 }

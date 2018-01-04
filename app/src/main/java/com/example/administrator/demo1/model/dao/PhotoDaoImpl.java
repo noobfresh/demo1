@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Administrator on 2017/12/22.
  */
 
-public class PhotoDaoImpl implements IPhotoDao {
+public class PhotoDaoImpl extends BaseDaoImpl<Photo> implements IPhotoDao {
     @Override
     public List<Photo> query(String whereClause, String... args) {
         List<Photo> photoList = new ArrayList<>();
@@ -20,18 +20,8 @@ public class PhotoDaoImpl implements IPhotoDao {
     }
 
     @Override
-    public void insert(Photo photo) {
-        DBUtil.insert(photo);
-    }
-
-    @Override
     public void delete(int id) {
         DBUtil.deleteById("Photo", id);
-    }
-
-    @Override
-    public void update(int id, Photo photo) {
-        DBUtil.updateById(photo, id);
     }
 
     @Override

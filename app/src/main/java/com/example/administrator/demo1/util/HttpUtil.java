@@ -19,7 +19,7 @@ import okhttp3.Response;
 /**
  * Created by Administrator on 2017/12/25.
  */
-
+//可以参照师傅那个
 public class HttpUtil {
 
     private static final String APPID = "52832";
@@ -76,14 +76,18 @@ public class HttpUtil {
             public void run() {
                 try{
                     OkHttpClient client = new OkHttpClient();
+                    //
                     FormBody.Builder builder = new FormBody.Builder()
                             .add("showapi_appid", APPID)
                             .add("showapi_sign", SIGN)
                             .add("id", id)
                             .add("needContent", "1");
+                    //
                     RequestBody requestBody = builder.build();
                     Request request = new Request.Builder()
+                            //
                             .url(NEWS_URL)
+                            //
                             .post(requestBody)
                             .build();
                     Response response = client.newCall(request).execute();
