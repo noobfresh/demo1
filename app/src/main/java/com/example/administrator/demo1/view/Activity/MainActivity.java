@@ -16,6 +16,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +27,7 @@ import android.widget.ProgressBar;
 
 import com.example.administrator.demo1.R;
 import com.example.administrator.demo1.model.entity.News;
+import com.example.administrator.demo1.model.entity.tree.TreeNode;
 import com.example.administrator.demo1.presenter.IDisplayNewsPresenter;
 import com.example.administrator.demo1.util.BadgeUtil;
 import com.example.administrator.demo1.util.DBUtil;
@@ -33,6 +36,12 @@ import com.example.administrator.demo1.view.Fragment.NewsFragment;
 import com.example.administrator.demo1.view.Fragment.PhotoFragment;
 import com.example.administrator.demo1.view.Fragment.SettingFragment;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private BottomNavigationItemView actionSetting;
     private Badge badgeView2;
     private Badge badgeView;
+
+    private TreeNode root;
     //
     private Fragment fragmentNews;
     private Fragment fragmentPhoto;
@@ -69,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         initDatabase();
+
 //        HttpUtil.testOkHttp();
 //        RxJavaUtil.test14();
         ProgressBar progressBar = findViewById(R.id.progressBar);
@@ -98,12 +110,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         replaceFragment(fragmentNews);
 
         badgeView = new QBadgeView(this).bindTarget(actionSetting)
-                .setBadgeNumber(BadgeUtil.settingBadge.getTotal())
                 .setExactMode(true)
                 .setBadgeGravity(Gravity.TOP| Gravity.END)
                 .setGravityOffset(40.0f, 0, true)
                 .setShowShadow(true);
-//        BadgeUtil.randomBadge();
+
+        //
+//        root = new TreeNode(null, actionSetting, badgeView, TreeNode.count);
+//        TreeNode.setmRoot(root);
+        root = decodeTreeNodeData();
+        TreeNode.setmRoot(root);
+        //
+        badgeView.setBadgeNumber(root.getValue());
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
 
@@ -167,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                badgeView.setBadgeNumber(BadgeUtil.settingBadge.getTotal());
+                badgeView.setBadgeNumber(root.getValue());
             }
         });
     }
@@ -202,4 +220,61 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
     }
+
+    public TreeNode decodeTreeNodeData(){
+        TreeNode root = null;
+        SharedPreferences preferences = getSharedPreferences("TreeNodedata",
+                MODE_PRIVATE);
+        String productBase64 = preferences.getString("oAuth_1", "");
+        //读取字节
+        byte[] base64 = Base64.decode(productBase64.getBytes(), Base64.DEFAULT);
+        //封装到字节流
+        ByteArrayInputStream bais = new ByteArrayInputStream(base64);
+        try {
+            //再次封装
+            ObjectInputStream bis = new ObjectInputStream(bais);
+            try {
+                //读取对象
+                root = (TreeNode) bis.readObject();
+            } catch (ClassNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } catch (StreamCorruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return root;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        //持久化内容
+        SharedPreferences.Editor editor = getSharedPreferences("TreeNodedata", MODE_PRIVATE).edit();
+        // 创建字节输出流
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            // 创建对象输出流，并封装字节流
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            // 将对象写入字节流
+            oos.writeObject(root);
+            // 将字节流编码成base64的字符窜
+            String oAuth_Base64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
+            editor.putString("oAuth_1", oAuth_Base64);
+
+            editor.commit();
+        } catch (IOException e) {
+            //
+            e.printStackTrace();
+            Log.d("fail", "存储失败");
+        }
+        Log.d("ok", "存储成功");
+        super.onDestroy();
+    }
+
+
 }

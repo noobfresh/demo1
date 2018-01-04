@@ -1,22 +1,33 @@
 package com.example.administrator.demo1.util;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.administrator.demo1.R;
 import com.example.administrator.demo1.model.entity.badge.AccpetVoiceVideoBadge;
 import com.example.administrator.demo1.model.entity.badge.CardBadge;
 import com.example.administrator.demo1.model.entity.badge.FirstLevelBadge;
 import com.example.administrator.demo1.model.entity.badge.SettingBadge;
+import com.example.administrator.demo1.model.entity.tree.TreeNode;
 
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import q.rorbin.badgeview.Badge;
+import q.rorbin.badgeview.QBadgeView;
 
 /**
  * Created by Administrator on 2017/12/28.
@@ -25,14 +36,6 @@ import q.rorbin.badgeview.Badge;
 public class BadgeUtil {
 
     public static final String TAG = "BadgeUtil";
-
-    public static SettingBadge settingBadge = new SettingBadge(1, 1,
-            new CardBadge(10,3,5,null,
-            new AccpetVoiceVideoBadge(1,1,1,1,
-                    1,1,1), null),
-            null);
-
-    public static FirstLevelBadge firstLevelBadge = FirstLevelBadge.getInstance();
 
     public static void badgeSetForTextView(Badge badge, int num){
         badge.setBadgeNumber(num)
@@ -43,116 +46,56 @@ public class BadgeUtil {
 
 
     public static void randomBadge(){
+        List<TreeNode> nodes = TreeNode.filter(TreeNode.levelTrav());
+        int randomSize = nodes.size();
         Random random = new Random();
-        //有没什么聪明的办法 - -随机给属性赋值。
-        List<Model> modelList = getAllIntField();
-        int i = random.nextInt(modelList.size());
-        Model model = modelList.get(i);
-        try {
-            int count = getter(model.object, upperFirstLetter(model.field.getName()), int.class) + 1;
-            setter(model.object, upperFirstLetter(model.field.getName()), count, int.class);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.d(TAG, "randomBadge: " + modelList.size());
+        int index = random.nextInt(randomSize);
+        TreeNode node = nodes.get(index);
+        node.setValue(node.getValue()+1);
     }
 
-    public static List<Model> getAllIntField(){
-        List<Model> fieldList = new ArrayList<>();
-        Field[] fieldsSetting = settingBadge.getClass().getDeclaredFields();
-        Field[] fieldsCard = settingBadge.getCardBadge().getClass().getDeclaredFields();
-        Field[] fieldsNewMsgNotify = settingBadge.getCardBadge().getNewMsgNotifyBadge().getClass().getDeclaredFields();
-        Field[] fieldsVoiceVideo = settingBadge.getCardBadge().getAccpetVoiceVideoBadge().getClass().getDeclaredFields();
-        Field[] fieldsVibration = settingBadge.getCardBadge().getVibrationBadge().getClass().getDeclaredFields();
-        Field[] fieldsSetting1 = settingBadge.getSetting1Badge().getClass().getDeclaredFields();
-        Field[] fieldsAccount = settingBadge.getSetting1Badge().getAccountBadge().getClass().getDeclaredFields();
-        Field[] fieldsNewMsgInform = settingBadge.getSetting1Badge().getNewMsgInformBadge().getClass().getDeclaredFields();
-        Field[] fieldsPrivacy = settingBadge.getSetting1Badge().getPrivacyBadge().getClass().getDeclaredFields();
-        for(Field field : fieldsSetting){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge));
+    public static void updateUI(Activity activity, final int id,final Map<Integer, TreeNode> map){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                TreeNode treeNode = map.get(id);
+                BadgeUtil.badgeSetForTextView(treeNode.getBadge(), treeNode.getValue());
             }
-        }
-        for(Field field : fieldsCard){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getCardBadge()));
-            }
-        }
-        for(Field field : fieldsNewMsgNotify){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getCardBadge().getNewMsgNotifyBadge()));
-            }
-        }
-        for(Field field : fieldsVoiceVideo){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getCardBadge().getAccpetVoiceVideoBadge()));
-            }
-        }
-        for(Field field : fieldsVibration){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getCardBadge().getVibrationBadge()));
-            }
-        }
-        for(Field field : fieldsSetting1){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getSetting1Badge()));
-            }
-        }
-        for(Field field : fieldsAccount){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getSetting1Badge().getAccountBadge()));
-            }
-        }
-        for(Field field : fieldsNewMsgInform){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getSetting1Badge().getNewMsgInformBadge()));
-            }
-        }
-        for(Field field : fieldsPrivacy){
-            if(field.getType() == int.class){
-                fieldList.add(new Model(field, settingBadge.getSetting1Badge().getPrivacyBadge()));
-            }
-        }
-        return fieldList;
+        });
     }
 
-    static class Model{
-        Field field;
-        Object object;
-
-        public Model() {
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public static Map<Integer, TreeNode> initTreeNodeMap(int startId, int endId,
+                                                  Activity activity, TreeNode root,
+                                                  View.OnClickListener listener,
+                                                         View view){
+        Map<Integer, TreeNode> map = new ArrayMap<>();
+        boolean flag = isInited(root);
+        for (int i = startId; i < endId + 1; i++) {
+            ViewGroup viewGroup = view.findViewById(i);
+            Badge badge = null;
+            for (int j = 0; j < viewGroup.getChildCount(); j++) {
+                View text = viewGroup.getChildAt(j);
+                if (text instanceof TextView) {
+                    badge = new QBadgeView(activity).bindTarget(text);
+                }
+            }
+            viewGroup.setOnClickListener(listener);
+            TreeNode node;
+            if(flag){
+                node = new TreeNode(root, viewGroup, badge, TreeNode.count);
+            }else {
+                node = root.getKids().get(i - startId);
+                node.setBadge(badge);
+                node.setView(viewGroup);
+            }
+            map.put(viewGroup.getId(), node);
+            updateUI(activity, i, map);
         }
-
-        public Model(Field field, Object object) {
-            this.field = field;
-            this.object = object;
-        }
+        return map;
     }
 
-
-    private static void setter(Object object, String attr, Object value, Class type){
-        try{
-            Method method = object.getClass().getMethod("set" + attr, type);
-            method.invoke(object, value);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public static boolean isInited(TreeNode root){
+        return root.getKids() == null || root.getKids().size() == 0;
     }
-
-
-    private static int getter(Object object, String attr, Class type){
-        try{
-            Method method = object.getClass().getMethod("get" + attr);
-            Object ans = method.invoke(object);
-            return (int) ans;
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
-    private static String upperFirstLetter(String attr){
-        return attr.substring(0,1).toUpperCase() + attr.substring(1);
-    }
-
 }
